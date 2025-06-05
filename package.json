@@ -1,0 +1,49 @@
+{
+	"name": "afiqzudinhadi.github.io",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "npx remix vite:build",
+		"dev": "npx remix vite:dev",
+		"lint": "eslint --ignore-path .gitignore .",
+		"start": "npx remix-serve ./build/server/index.js",
+		"typecheck": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/afiqzudinhadi/afiqzudinhadi.github.io.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"bugs": {
+		"url": "https://github.com/afiqzudinhadi/afiqzudinhadi.github.io/issues"
+	},
+	"homepage": "https://github.com/afiqzudinhadi/afiqzudinhadi.github.io#readme",
+	"dependencies": {
+		"@remix-run/node": "^2.16.8",
+		"@remix-run/react": "^2.16.8",
+		"@remix-run/serve": "^2.16.8",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"express": "^4.21.2",
+		"isbot": "^4.4.0",
+		"lucide-react": "^0.513.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"tailwind-merge": "^3.3.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@remix-run/dev": "^2.16.8",
+		"@types/react": "^19.1.6",
+		"@types/react-dom": "^19.1.6",
+		"eslint": "^9.28.0",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.5",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
+}
