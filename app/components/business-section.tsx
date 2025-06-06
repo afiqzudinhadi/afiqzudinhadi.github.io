@@ -53,16 +53,6 @@ export function BusinessSection({ businesses = [] }: BusinessSectionProps) {
 							</CardHeader>
 							<CardContent className="space-y-2">
 								<div className="flex gap-3 pt-2">
-									{business.instagramUrl && (
-										<a
-											href={business.instagramUrl}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label="Instagram"
-										>
-											<Instagram className="w-5 h-5 text-pink-500" />
-										</a>
-									)}
 									{business.websiteUrl && (
 										<a
 											href={business.websiteUrl}
@@ -71,6 +61,16 @@ export function BusinessSection({ businesses = [] }: BusinessSectionProps) {
 											aria-label="Website"
 										>
 											<Globe className="w-5 h-5 text-blue-500" />
+										</a>
+									)}
+									{business.instagramUrl && (
+										<a
+											href={business.instagramUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label="Instagram"
+										>
+											<Instagram className="w-5 h-5 text-pink-500" />
 										</a>
 									)}
 									{business.facebookUrl && (
