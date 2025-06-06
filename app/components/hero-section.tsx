@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import ProfileCard from "@/components/profile-card";
 import avatar from "@/assets/avatar.png";
 
 interface HeroSectionProps {
@@ -35,24 +35,15 @@ export function HeroSection({ profile }: HeroSectionProps) {
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 				<div className="text-center">
 					<div className="mb-8">
-						<Avatar className="w-32 h-32 mx-auto mb-6">
-							<AvatarImage
-								src={avatar}
-								style={{ width: "100%", height: "100%" }}
+						<div className="flex justify-center">
+							<ProfileCard
+								name="Afiq Zudin Hadi"
+								title={profile.title}
+								avatarUrl={avatar}
+								showUserInfo={false}
+								enableTilt={true}
 							/>
-							<AvatarFallback className="text-4xl font-bold bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-								{profile.name
-									.split(" ")
-									.map((n) => n[0])
-									.join("")}
-							</AvatarFallback>
-						</Avatar>
-						<h1 className="text-5xl md:text-6xl font-bold mb-4">
-							{profile.name}
-						</h1>
-						<h2 className="text-2xl md:text-3xl text-primary font-medium mb-6">
-							{profile.title}
-						</h2>
+						</div>
 						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
 							{profile.about?.description?.map((desc, idx) => (
 								<span key={idx} className={idx > 0 ? "block mt-2" : undefined}>
