@@ -12,7 +12,13 @@ export function Navigation({ profile }: NavigationProps) {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const sections = ["about", "experience", "projects", "skills", "contact"];
+			const sections = [
+				"about",
+				"experience",
+				"projects",
+				"businesses",
+				"contact",
+			];
 			const scrollPosition = window.scrollY + 100;
 
 			for (const section of sections) {
@@ -46,7 +52,7 @@ export function Navigation({ profile }: NavigationProps) {
 				<div className="flex justify-between items-center h-16">
 					<div className="font-bold text-xl">{profile.name}</div>
 					<div className="hidden md:flex space-x-2">
-						{["about", "experience", "projects", "skills", "contact"].map(
+						{["about", "experience", "projects", "businesses", "contact"].map(
 							(section) => (
 								<Button
 									key={section}

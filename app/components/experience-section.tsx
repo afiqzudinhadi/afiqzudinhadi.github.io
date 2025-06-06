@@ -13,7 +13,7 @@ interface Experience {
 	company: string;
 	position: string;
 	duration: string;
-	description: string;
+	description: string[];
 	technologies: string[];
 	current: boolean;
 }
@@ -51,7 +51,11 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
 								</CardHeader>
 								<CardContent>
 									<p className="text-muted-foreground mb-4 leading-relaxed">
-										{exp.description}
+										<ul className="list-disc list-inside space-y-1">
+											{exp.description.map((item, idx) => (
+												<li key={idx}>{item}</li>
+											))}
+										</ul>
 									</p>
 									<div className="flex flex-wrap gap-2">
 										{exp.technologies.map((tech) => (

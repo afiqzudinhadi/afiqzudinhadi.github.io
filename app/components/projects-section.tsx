@@ -82,7 +82,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 														rel="noopener noreferrer"
 													>
 														<ExternalLink className="mr-2 h-4 w-4" />
-														Live Demo
+														Go to site
 													</a>
 												</Button>
 											)}
@@ -143,7 +143,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 														rel="noopener noreferrer"
 													>
 														<ExternalLink className="mr-1 h-3 w-3" />
-														Demo
+														Go to site
 													</a>
 												</Button>
 											)}

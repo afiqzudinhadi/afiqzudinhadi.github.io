@@ -1,17 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import avatar from "@/assets/avatar.png";
 
 interface HeroSectionProps {
 	profile: {
 		name: string;
 		title: string;
-		bio: string;
 		email: string;
 		phone?: string;
 		location: string;
-		githubUrl?: string;
+		githubUrl?: string[];
 		linkedinUrl?: string;
+		about?: {
+			description: string[];
+			technologies?: string[];
+		};
 	};
 }
 
@@ -32,6 +36,10 @@ export function HeroSection({ profile }: HeroSectionProps) {
 				<div className="text-center">
 					<div className="mb-8">
 						<Avatar className="w-32 h-32 mx-auto mb-6">
+							<AvatarImage
+								src={avatar}
+								style={{ width: "100%", height: "100%" }}
+							/>
 							<AvatarFallback className="text-4xl font-bold bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
 								{profile.name
 									.split(" ")
@@ -46,22 +54,40 @@ export function HeroSection({ profile }: HeroSectionProps) {
 							{profile.title}
 						</h2>
 						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-							{profile.bio}
+							{profile.about?.description?.map((desc, idx) => (
+								<span key={idx} className={idx > 0 ? "block mt-2" : undefined}>
+									{desc}
+								</span>
+							))}
 						</p>
 					</div>
 
 					<div className="flex flex-wrap justify-center gap-4 mb-8">
-						{profile.githubUrl && (
-							<Button asChild>
-								<a
-									href={profile.githubUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<Github className="mr-2 h-4 w-4" />
-									GitHub
-								</a>
-							</Button>
+						{profile.githubUrl && profile.githubUrl.length > 0 && (
+							<>
+								<Button asChild>
+									<a
+										href={profile.githubUrl[0]}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<Github className="mr-2 h-4 w-4" />
+										GitHub (Main)
+									</a>
+								</Button>
+								{profile.githubUrl[1] && (
+									<Button asChild variant="outline">
+										<a
+											href={profile.githubUrl[1]}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<Github className="mr-2 h-4 w-4" />
+											GitHub (Alt)
+										</a>
+									</Button>
+								)}
+							</>
 						)}
 						{profile.linkedinUrl && (
 							<Button asChild variant="outline">

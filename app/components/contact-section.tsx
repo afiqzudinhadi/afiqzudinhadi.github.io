@@ -14,7 +14,7 @@ interface ContactSectionProps {
 		email: string;
 		phone?: string;
 		location: string;
-		githubUrl?: string;
+		githubUrl?: string[];
 		linkedinUrl?: string;
 	};
 }
@@ -34,32 +34,36 @@ export function ContactSection({ profile }: ContactSectionProps) {
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="grid gap-4">
-							<div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
+							<a
+								href={`mailto:${profile.email}`}
+								className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors ring-0 hover:ring-2 hover:ring-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/60"
+								style={{ textDecoration: "none" }}
+							>
 								<Mail className="h-5 w-5 text-primary" />
 								<div>
 									<p className="font-medium">Email</p>
-									<a
-										href={`mailto:${profile.email}`}
-										className="text-muted-foreground hover:text-primary transition-colors"
-									>
+									<span className="text-muted-foreground hover:text-primary transition-colors">
 										{profile.email}
-									</a>
+									</span>
 								</div>
-							</div>
+							</a>
 
 							{profile.phone && (
-								<div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
+								<a
+									href={`https://wa.me/${profile.phone.replace(/\s+/g, "")}`}
+									className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors ring-0 hover:ring-2 hover:ring-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/60"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{ textDecoration: "none" }}
+								>
 									<Phone className="h-5 w-5 text-primary" />
 									<div>
 										<p className="font-medium">Phone</p>
-										<a
-											href={`tel:${profile.phone}`}
-											className="text-muted-foreground hover:text-primary transition-colors"
-										>
+										<span className="text-muted-foreground hover:text-primary transition-colors">
 											{profile.phone}
-										</a>
+										</span>
 									</div>
-								</div>
+								</a>
 							)}
 
 							<div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
@@ -72,17 +76,31 @@ export function ContactSection({ profile }: ContactSectionProps) {
 						</div>
 
 						<div className="flex justify-center space-x-4 pt-6">
-							{profile.githubUrl && (
-								<Button variant="outline" size="lg" asChild>
-									<a
-										href={profile.githubUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<Github className="mr-2 h-5 w-5" />
-										GitHub
-									</a>
-								</Button>
+							{profile.githubUrl && profile.githubUrl.length > 0 && (
+								<>
+									<Button asChild>
+										<a
+											href={profile.githubUrl[0]}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<Github className="mr-2 h-4 w-4" />
+											GitHub (Main)
+										</a>
+									</Button>
+									{profile.githubUrl[1] && (
+										<Button asChild variant="outline">
+											<a
+												href={profile.githubUrl[1]}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<Github className="mr-2 h-4 w-4" />
+												GitHub (Alt)
+											</a>
+										</Button>
+									)}
+								</>
 							)}
 							{profile.linkedinUrl && (
 								<Button variant="outline" size="lg" asChild>
@@ -96,12 +114,6 @@ export function ContactSection({ profile }: ContactSectionProps) {
 									</a>
 								</Button>
 							)}
-							<Button size="lg" asChild>
-								<a href={`mailto:${profile.email}`}>
-									<Mail className="mr-2 h-5 w-5" />
-									Send Email
-								</a>
-							</Button>
 						</div>
 					</CardContent>
 				</Card>
