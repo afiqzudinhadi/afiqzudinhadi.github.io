@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Globe, Instagram, Facebook } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { SiTiktok } from "react-icons/si";
 
 interface Business {
 	_id: string;
@@ -89,7 +90,7 @@ export function BusinessSection({ businesses = [] }: BusinessSectionProps) {
 											rel="noopener noreferrer"
 											aria-label="TikTok"
 										>
-											{/* <Tiktok className="w-5 h-5 text-black" /> */}
+											<SiTiktok className="w-5 h-5 text-black" />
 										</a>
 									)}
 								</div>
