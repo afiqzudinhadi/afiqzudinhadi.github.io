@@ -3,7 +3,6 @@ import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { ProjectsSection } from "@/components/projects-section";
-import { SkillsSection } from "@/components/skills-section";
 import { ContactSection } from "@/components/contact-section";
 import { portfolioData } from "@/data/portfolio";
 
@@ -21,7 +20,6 @@ export default function Index() {
 			<HeroSection profile={portfolioData.profile} />
 			<ExperienceSection experiences={portfolioData.experiences} />
 			<ProjectsSection projects={portfolioData.projects} />
-			<SkillsSection skills={portfolioData.skills} />
 			<ContactSection profile={portfolioData.profile} />
 		</div>
 	);
