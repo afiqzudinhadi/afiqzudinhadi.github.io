@@ -3,5 +3,10 @@ import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-	plugins: [remix(), tsConfigPaths()],
+	plugins: [
+		remix({
+			ssr: false,
+		}),
+		tsConfigPaths(),
+	],
 });
