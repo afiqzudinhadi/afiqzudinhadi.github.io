@@ -206,6 +206,7 @@ export const portfolioData = {
 			description:
 				"Vive Coffee is a coffee beans reseller in Brunei Darussalam, offering a range of specialty coffees from all over the world. We focus on quality and sustainability, sourcing our beans from local farmers.",
 			instagramUrl: "https://www.instagram.com/vivecoffee.bn/",
+			logo: "vivecoffee",
 		},
 		{
 			_id: "2",
@@ -218,6 +219,7 @@ export const portfolioData = {
 			instagramUrl: "https://www.instagram.com/aravista.official/",
 			facebookUrl: "https://www.facebook.com/profile.php?id=61576677113507",
 			tiktokUrl: "https://www.tiktok.com/@aravista.official",
+			logo: "aravista",
 		},
 	],
 };
